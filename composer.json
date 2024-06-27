@@ -1,17 +1,16 @@
 {
-    "name": "asantibanez/laravel-eloquent-state-machines",
-    "description": "State machines for your Laravel Eloquent models",
+    "name": "wlhrtr/state-machine",
+    "description": "State machine for your Eloquent models (forked from asantibanez and continued)",
     "keywords": [
-        "asantibanez",
-        "laravel-eloquent-state-machines"
+        "wlhrtr",
+        "state-machine"
     ],
-    "homepage": "https://github.com/asantibanez/laravel-eloquent-state-machines",
+    "homepage": "https://github.com/wlhrtr/state-machine",
     "license": "MIT",
     "type": "library",
     "authors": [
         {
-            "name": "Andrés Santibáñez",
-            "email": "santibanez.andres@gmail.com",
+            "name": "wlhrtr",
             "role": "Developer"
         }
     ],
@@ -27,12 +26,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Asantibanez\\LaravelEloquentStateMachines\\": "src"
+            "Wlhrtr\\StateMachine\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Asantibanez\\LaravelEloquentStateMachines\\Tests\\": "tests"
+            "Wlhrtr\\StateMachine\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -45,7 +44,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Asantibanez\\LaravelEloquentStateMachines\\LaravelEloquentStateMachinesServiceProvider"
+                "Wlhrtr\\StateMachine\\StateMachineServiceProvider"
             ]
         }
     }

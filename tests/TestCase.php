@@ -1,6 +1,6 @@
 <?php
 
-namespace Asantibanez\LaravelEloquentStateMachines\Tests;
+namespace Wlhrtr\StateMachine\Tests;
 
 use CreateSalesManagersTable;
 use CreatePendingTransitionsTable;
@@ -8,7 +8,7 @@ use CreateSalesOrdersTable;
 use CreateStateHistoriesTable;
 use Javoscript\MacroableModels\MacroableModelsServiceProvider;
 use Orchestra\Testbench\TestCase as BaseTestCase;
-use Asantibanez\LaravelEloquentStateMachines\LaravelEloquentStateMachinesServiceProvider;
+use Wlhrtr\StateMachine\StateMachineServiceProvider;
 
 class TestCase extends BaseTestCase
 {
@@ -25,7 +25,7 @@ class TestCase extends BaseTestCase
     {
         return [
             MacroableModelsServiceProvider::class,
-            LaravelEloquentStateMachinesServiceProvider::class,
+            StateMachineServiceProvider::class,
         ];
     }
 

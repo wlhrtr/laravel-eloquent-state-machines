@@ -1,12 +1,12 @@
 <?php
 
 
-namespace Asantibanez\LaravelEloquentStateMachines\StateMachines;
+namespace Wlhrtr\StateMachine\StateMachines;
 
 
-use Asantibanez\LaravelEloquentStateMachines\Exceptions\TransitionNotAllowedException;
-use Asantibanez\LaravelEloquentStateMachines\Models\PendingTransition;
-use Asantibanez\LaravelEloquentStateMachines\Models\StateHistory;
+use Wlhrtr\StateMachine\Exceptions\TransitionNotAllowedException;
+use Wlhrtr\StateMachine\Models\PendingTransition;
+use Wlhrtr\StateMachine\Models\StateHistory;
 use Carbon\Carbon;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Database\Eloquent\Model;

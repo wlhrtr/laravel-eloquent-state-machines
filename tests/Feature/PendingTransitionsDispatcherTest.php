@@ -1,16 +1,16 @@
 <?php
 
-namespace Asantibanez\LaravelEloquentStateMachines\Tests\Feature;
+namespace Wlhrtr\StateMachine\Tests\Feature;
 
-use Asantibanez\LaravelEloquentStateMachines\Exceptions\TransitionNotAllowedException;
-use Asantibanez\LaravelEloquentStateMachines\Jobs\PendingTransitionExecutor;
-use Asantibanez\LaravelEloquentStateMachines\Jobs\PendingTransitionsDispatcher;
-use Asantibanez\LaravelEloquentStateMachines\Models\PendingTransition;
-use Asantibanez\LaravelEloquentStateMachines\Tests\TestJobs\StartSalesOrderFulfillmentJob;
-use Asantibanez\LaravelEloquentStateMachines\Tests\TestCase;
-use Asantibanez\LaravelEloquentStateMachines\Tests\TestModels\SalesOrder;
-use Asantibanez\LaravelEloquentStateMachines\Tests\TestStateMachines\SalesOrders\FulfillmentStateMachine;
-use Asantibanez\LaravelEloquentStateMachines\Tests\TestStateMachines\SalesOrders\StatusStateMachine;
+use Wlhrtr\StateMachine\Exceptions\TransitionNotAllowedException;
+use Wlhrtr\StateMachine\Jobs\PendingTransitionExecutor;
+use Wlhrtr\StateMachine\Jobs\PendingTransitionsDispatcher;
+use Wlhrtr\StateMachine\Models\PendingTransition;
+use Wlhrtr\StateMachine\Tests\TestJobs\StartSalesOrderFulfillmentJob;
+use Wlhrtr\StateMachine\Tests\TestCase;
+use Wlhrtr\StateMachine\Tests\TestModels\SalesOrder;
+use Wlhrtr\StateMachine\Tests\TestStateMachines\SalesOrders\FulfillmentStateMachine;
+use Wlhrtr\StateMachine\Tests\TestStateMachines\SalesOrders\StatusStateMachine;
 use Carbon\Carbon;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;

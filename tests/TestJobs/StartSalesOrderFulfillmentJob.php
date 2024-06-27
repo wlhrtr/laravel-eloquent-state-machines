@@ -1,9 +1,9 @@
 <?php
 
 
-namespace Asantibanez\LaravelEloquentStateMachines\Tests\TestJobs;
+namespace Wlhrtr\StateMachine\Tests\TestJobs;
 
-use Asantibanez\LaravelEloquentStateMachines\Tests\TestModels\SalesOrder;
+use Wlhrtr\StateMachine\Tests\TestModels\SalesOrder;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;

@@ -1,10 +1,10 @@
 <?php
 
-namespace Asantibanez\LaravelEloquentStateMachines\Traits;
+namespace Wlhrtr\StateMachine\Traits;
 
-use Asantibanez\LaravelEloquentStateMachines\Models\PendingTransition;
-use Asantibanez\LaravelEloquentStateMachines\Models\StateHistory;
-use Asantibanez\LaravelEloquentStateMachines\StateMachines\State;
+use Wlhrtr\StateMachine\Models\PendingTransition;
+use Wlhrtr\StateMachine\Models\StateHistory;
+use Wlhrtr\StateMachine\StateMachines\State;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
@@ -13,7 +13,7 @@ use Javoscript\MacroableModels\Facades\MacroableModels;
 
 /**
  * Trait HasStateMachines
- * @package Asantibanez\LaravelEloquentStateMachines\Traits
+ * @package Wlhrtr\StateMachine\Traits
  * @property array $stateMachines
  */
 trait HasStateMachines

@@ -1,11 +1,11 @@
 <?php
 
-namespace Asantibanez\LaravelEloquentStateMachines\Tests\Feature;
+namespace Wlhrtr\StateMachine\Tests\Feature;
 
-use Asantibanez\LaravelEloquentStateMachines\Tests\TestCase;
-use Asantibanez\LaravelEloquentStateMachines\Tests\TestJobs\AfterTransitionJob;
-use Asantibanez\LaravelEloquentStateMachines\Tests\TestModels\SalesOrderWithAfterTransitionHook;
-use Asantibanez\LaravelEloquentStateMachines\Tests\TestModels\SalesOrderWithBeforeTransitionHook;
+use Wlhrtr\StateMachine\Tests\TestCase;
+use Wlhrtr\StateMachine\Tests\TestJobs\AfterTransitionJob;
+use Wlhrtr\StateMachine\Tests\TestModels\SalesOrderWithAfterTransitionHook;
+use Wlhrtr\StateMachine\Tests\TestModels\SalesOrderWithBeforeTransitionHook;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Queue;

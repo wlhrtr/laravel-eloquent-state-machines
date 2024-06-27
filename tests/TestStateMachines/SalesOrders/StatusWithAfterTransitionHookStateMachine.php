@@ -1,11 +1,11 @@
 <?php
 
 
-namespace Asantibanez\LaravelEloquentStateMachines\Tests\TestStateMachines\SalesOrders;
+namespace Wlhrtr\StateMachine\Tests\TestStateMachines\SalesOrders;
 
 
-use Asantibanez\LaravelEloquentStateMachines\StateMachines\StateMachine;
-use Asantibanez\LaravelEloquentStateMachines\Tests\TestJobs\AfterTransitionJob;
+use Wlhrtr\StateMachine\StateMachines\StateMachine;
+use Wlhrtr\StateMachine\Tests\TestJobs\AfterTransitionJob;
 
 class StatusWithAfterTransitionHookStateMachine extends StateMachine
 {

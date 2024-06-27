@@ -1,11 +1,11 @@
 <?php
 
-namespace Asantibanez\LaravelEloquentStateMachines;
+namespace Wlhrtr\StateMachine;
 
-use Asantibanez\LaravelEloquentStateMachines\Commands\MakeStateMachine;
+use Wlhrtr\StateMachine\Commands\MakeStateMachine;
 use Illuminate\Support\ServiceProvider;
 
-class LaravelEloquentStateMachinesServiceProvider extends ServiceProvider
+class StateMachineServiceProvider extends ServiceProvider
 {
     public function boot()
     {
