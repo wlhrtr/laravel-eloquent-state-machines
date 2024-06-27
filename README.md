@@ -1,5 +1,5 @@
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/asantibanez/laravel-eloquent-state-machines.svg?style=flat-square)](https://packagist.org/packages/asantibanez/laravel-eloquent-state-machines)
-[![Total Downloads](https://img.shields.io/packagist/dt/asantibanez/laravel-eloquent-state-machines.svg?style=flat-square)](https://packagist.org/packages/asantibanez/laravel-eloquent-state-machines)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/wlhrtr/state-machine.svg?style=flat-square)](https://packagist.org/packages/wlhrtr/state-machine)
+[![Total Downloads](https://img.shields.io/packagist/dt/wlhrtr/state-machine.svg?style=flat-square)](https://packagist.org/packages/wlhrtr/state-machine)
 
 ![Laravel Eloquent State Machines](https://banners.beyondco.de/Laravel%20Eloquent%20State%20Machines.png?theme=light&packageManager=composer+require&packageName=asantibanez%2Flaravel-eloquent-state-machines&pattern=circuitBoard&style=style_1&description=State+machines+for+your+Laravel+Eloquent+models+in+no+time&md=1&showWatermark=1&fontSize=100px&images=collection)
 
@@ -74,16 +74,16 @@ $salesOrder->status()->history()->get();
 
 ## Demo
 
-You can check a demo and examples [here](https://github.com/asantibanez/laravel-eloquent-state-machines-demo)
+You can check a demo and examples [here](https://github.com/wlhrtr/state-machine-demo)
 
-![demo](https://github.com/asantibanez/laravel-eloquent-state-machines/raw/master/demo.gif)
+![demo](https://github.com/wlhrtr/state-machine/raw/master/demo.gif)
 
 ## Installation
 
 You can install the package via composer:
 
 ```bash
-composer require asantibanez/laravel-eloquent-state-machines
+composer require wlhrtr/state-machine
 ```
 
 Next, you must export the package migrations
