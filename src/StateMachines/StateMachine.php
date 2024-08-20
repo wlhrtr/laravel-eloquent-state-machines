@@ -13,6 +13,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Validation\ValidationException;
+use InvalidArgumentException;
+use Wlhrtr\StateMachine\Guards\TransitionGuard;
 
 abstract class StateMachine
 {
@@ -109,6 +111,22 @@ abstract class StateMachine
             throw new ValidationException($validator);
         }
 
+        $validations = $this->guards()[$to] ?? [];
+
+        collect($validations)
+            ->each(function ($class) use ($from) {
+                $validator = app($class);
+
+                if (!$validator instanceof TransitionGuard) {
+                    throw new InvalidArgumentException("Guard {$class} is not if type BaseValidator");
+                }
+
+                $validator->execute($this->model, $from);
+            });
+
+
+        $this->beforeTransition($this->model, $from, $to, $customProperties);
+
         $beforeTransitionHooks = $this->beforeTransitionHooks()[$from] ?? [];
 
         collect($beforeTransitionHooks)
@@ -124,10 +142,12 @@ abstract class StateMachine
         $this->model->save();
 
         if ($this->recordHistory()) {
-            $responsible = $responsible ?? auth()->user();
+            $responsible = $responsible ?? $this->responsible() ?? auth()->user();
 
             $this->model->recordState($field, $from, $to, $customProperties, $responsible, $changedAttributes);
         }
+
+        $this->afterTransition($this->model, $from, $to, $customProperties);
 
         $afterTransitionHooks = $this->afterTransitionHooks()[$to] ?? [];
 
@@ -181,9 +201,22 @@ abstract class StateMachine
 
     abstract public function recordHistory() : bool;
 
+    public function responsible(): ?Model
+    {
+        return null;
+    }
+
     public function validatorForTransition($from, $to, $model): ?Validator
     {
         return null;
+    }
+
+    public function afterTransition($model, $from, $to, $customProperties): void
+    {
+    }
+
+    public function beforeTransition($model, $from, $to, $customProperties): void
+    {
     }
 
     public function afterTransitionHooks() : array
@@ -192,6 +225,11 @@ abstract class StateMachine
     }
 
     public function beforeTransitionHooks() : array {
+        return [];
+    }
+
+    public function guards(): array
+    {
         return [];
     }
 }
