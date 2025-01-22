@@ -69,6 +69,15 @@ trait HasStateMachines
                         return;
                     }
 
+                    $stateMachine->afterTransition($model, null, $currentState, []);
+
+                    $afterTransitionHooks = $stateMachine->afterTransitionHooks()[$currentState] ?? [];
+
+                    collect($afterTransitionHooks)
+                        ->each(function ($callable) use ($model) {
+                            $callable(null, $model);
+                        });
+
                     if (!$stateMachine->recordHistory()) {
                         return;
                     }
