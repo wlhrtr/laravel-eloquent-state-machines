@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Wlhrtr\StateMachine\Guards;
 
 use Illuminate\Support\Collection;

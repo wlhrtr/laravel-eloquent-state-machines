@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Wlhrtr\StateMachine\StateMachines;
-
 
 use Wlhrtr\StateMachine\Exceptions\TransitionNotAllowedException;
 use Wlhrtr\StateMachine\Models\PendingTransition;
@@ -10,7 +8,6 @@ use Wlhrtr\StateMachine\Models\StateHistory;
 use Carbon\Carbon;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Validation\ValidationException;
 use InvalidArgumentException;
@@ -50,7 +47,7 @@ abstract class StateMachine
         return $this->history()->to($state)->count();
     }
 
-    public function whenWas($state) : ?Carbon
+    public function whenWas($state): ?Carbon
     {
         $stateHistory = $this->snapshotWhen($state);
 
@@ -61,12 +58,12 @@ abstract class StateMachine
         return $stateHistory->created_at;
     }
 
-    public function snapshotWhen($state) : ?StateHistory
+    public function snapshotWhen($state): ?StateHistory
     {
         return $this->history()->to($state)->latest('id')->first();
     }
 
-    public function snapshotsWhen($state) : Collection
+    public function snapshotsWhen($state): Collection
     {
         return $this->history()->to($state)->get();
     }
@@ -98,9 +95,10 @@ abstract class StateMachine
      */
     public function transitionTo($from, $to, $customProperties = [], $responsible = null)
     {
-        if ($to === $this->currentState()) {
-            return;
-        }
+        // info: needs to be possible because of extra data
+        // if ($to === $this->currentState()) {
+        //     return;
+        // }
 
         if (!$this->canBe($from, $to) && !$this->canBe($from, '*') && !$this->canBe('*', $to) && !$this->canBe('*', '*')) {
             throw new TransitionNotAllowedException($from, $to, get_class($this->model));
@@ -168,7 +166,7 @@ abstract class StateMachine
      * @return null|PendingTransition
      * @throws TransitionNotAllowedException
      */
-    public function postponeTransitionTo($from, $to, Carbon $when, $customProperties = [], $responsible = null) : ?PendingTransition
+    public function postponeTransitionTo($from, $to, Carbon $when, $customProperties = [], $responsible = null): ?PendingTransition
     {
         if ($to === $this->currentState()) {
             return null;
@@ -195,11 +193,11 @@ abstract class StateMachine
         $this->pendingTransitions()->delete();
     }
 
-    abstract public function transitions() : array;
+    abstract public function transitions(): array;
 
-    abstract public function defaultState() : ?string;
+    abstract public function defaultState(): mixed;
 
-    abstract public function recordHistory() : bool;
+    abstract public function recordHistory(): bool;
 
     public function responsible(): ?Model
     {
@@ -219,12 +217,13 @@ abstract class StateMachine
     {
     }
 
-    public function afterTransitionHooks() : array
+    public function afterTransitionHooks(): array
     {
         return [];
     }
 
-    public function beforeTransitionHooks() : array {
+    public function beforeTransitionHooks(): array
+    {
         return [];
     }
 
