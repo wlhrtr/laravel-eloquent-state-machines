@@ -168,9 +168,10 @@ abstract class StateMachine
      */
     public function postponeTransitionTo($from, $to, Carbon $when, $customProperties = [], $responsible = null): ?PendingTransition
     {
-        if ($to === $this->currentState()) {
-            return null;
-        }
+        // info: needs to be possible because of extra data
+        // if ($to === $this->currentState()) {
+        //     return null;
+        // }
 
         if (!$this->canBe($from, $to)) {
             throw new TransitionNotAllowedException($from, $to, get_class($this->model));
